@@ -1,0 +1,3450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- nav bar start -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">HOME</a></li>
+        <li><a href="#band">BAND</a></li>
+        <li><a href="#tour">TOUR</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Extras</a></li>
+            <li><a href="#">Media</a></li> 
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+   
+
+<!-- nav bar end -->
+
+ 
+  
+    
+
+    <script src="index.js"></script>
+    
+
+
+
+    <!--    Bootsrap and google font libraries linn scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.83/jsrender.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.83/jsrender.min.js"></script>
+     <link rel="stylesheet" href="simplePagination.css"/>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="jquery.simplePagination.js"></script>
+            <!-- AngularFire scriptss -->
+            <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+            <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+                <!--Initializing Firebase -->
+                    <script>
+                   
+                  // Initialize Firebase
+                    var config = {
+                    apiKey: "AIzaSyADw-ZyGn1A1D3oOsT7uHf3twCrzzjJR_Y",
+                    authDomain: "finalyear-71fc3.firebaseapp.com",
+                    databaseURL: "https://finalyear-71fc3.firebaseio.com",
+                     storageBucket: "finalyear-71fc3.appspot.com",
+                     messagingSenderId: "228104988967"
+                    };
+    
+                    firebase.initializeApp(config);
+                    </script>
+
+
+<script type="text/javascript">
+/*
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+  console.log(error);
+});
+*/
+
+firebase.auth().onAuthStateChanged(firebaseUser =>{
+if(firebaseUser)
+{
+
+    t=1;
+
+$("#processedcashewnut").show();
+$("#rawcashewnut").show();
+$("#modal-form").hide();
+ $("#loginpanel").hide();
+ $("#logoutpan").show();
+ $("#dashbo").show();
+$("#rawbuyer").show();
+$("#rawseller").show();
+$("#prbuyer").show();
+$("#prseller").show();
+$("#myitems").show();
+}
+else
+{
+    $("#rawbuyer").hide();
+    $("#myitems").hide();
+$("#rawseller").show();
+$("#prbuyer").show();
+$("#prseller").show();
+}
+}
+
+);
+function tologin(e)
+{
+t=1;
+$('#loading-image').show();
+var email=document.getElementById("emailidd").value;
+var password=document.getElementById("passwordid").value;
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  alert(errorMessage);
+});
+firebase.auth().onAuthStateChanged(firebaseUser =>{
+if(firebaseUser)
+{
+firebaseUser.updateProfile({
+  displayName: "Jane Q. User",
+  photoURL: "https://example.com/jane-q-user/profile.jpg"
+}).then(function() {
+  // Update successful.
+}, function(error) {
+  // An error happened.
+});
+
+    console.log(firebaseUser.email);
+     console.log(firebaseUser.displayName);
+    $("#processedcashewnut").show();
+$("#rawcashewnut").show();
+$("#modal-form").hide();
+ $("#loginpanel").hide();
+ $("#logoutpan").show();
+ $("#dashbo").show();
+ $('#loading-image').hide();
+}
+else
+{
+    $('#loading-image').hide();
+}
+});
+
+
+
+}
+ 
+</script>
+<script type="text/javascript">
+    
+</script>
+
+
+
+
+
+</head>
+
+
+<div id="loading-image" class="modal fade in "  aria-hidden="true" style="width: 100%;height: 100%;margin: 0px;padding: 0px;opacity: 0.7;">
+                                <div class="modal-dialog" style="width: 100%;height: 100%;margin: 0px;padding: 0px;">
+                                    <div class="modal-content" style="width: 100%;height: 100%;margin: 0px;padding: 0px;">
+                                        <div class="modal-body">
+                                            <div class="row" style="width: 100%;height: 100%;text-align: center;margin-top: 200px;">
+                                             
+                                               <img src="loading.gif"/>
+                                           
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                        </div>
+<body  class="s" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  
+
+
+
+
+
+
+
+
+ <div id="wholebodydoc" style="padding: 0px;margin: -15px;">
+    
+  
+<div style="margin-top: 80px;padding: 0px;">
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#LOGIN">LOGIN</a></li>
+                        <li><a data-toggle="tab" href="#REGISTER">REGISTER</a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div id="LOGIN" class="tab-pane fade in active">
+
+
+
+                            <form id="loginform" class="form-top-margin">
+
+                                <div class="field-wrap">
+
+                                    <div>
+                                        <label class="label-width">
+                                            Email<span class="req">*</span>
+                                        </label>
+                                        <input type="email" name="email" required autocomplete="off"></input>
+                                    </div>
+                                </div>
+
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Password<span class="req">*</span>
+                                    </label>
+                                    <input type="password" name="password" required autocomplete="off" />
+                                </div>
+
+
+
+                                <button style="margin-top:10px" class="button button-block">Log In</button>
+
+                            </form>
+
+                        </div>
+
+                        <div id="REGISTER" class="tab-pane fade">
+                            <form id="registerform" class="form-top-margin">
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Username<span class="req">*</span>
+                                    </label>
+                                    <input type="text" name="username" required autocomplete="off" />
+                                </div>
+                                <div class="top-row">
+                                    <div class="field-wrap">
+                                        <label class="label-width">
+                                            First Name<span class="req">*</span>
+                                        </label>
+                                        <input type="text" name="firstname" required autocomplete="off" />
+                                    </div>
+
+                                    <div class="field-wrap">
+                                        <label class="label-width">
+                                            Last Name<span class="req">*</span>
+                                        </label>
+                                        <input type="text" name="lastname" required autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Email<span class="req">*</span>
+                                    </label>
+                                    <input type="email" name="email" required autocomplete="off" />
+                                </div>
+
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Password<span class="req">*</span>
+                                    </label>
+                                    <input type="password" name="password" required autocomplete="off" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        DOB<span class="req">*</span>
+                                    </label>
+                                    <input type="text" name="dob" required autocomplete="off" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Age<span class="req">*</span>
+                                    </label>
+                                    <input type="text" name="age" required autocomplete="off" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Company Name<span class="req">*</span>
+                                    </label>
+                                    <input type="text" name="cname" required autocomplete="off" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="label-width">
+                                        Company Address<span class="req">*</span>
+                                    </label>
+                                    <input type="text" name="caddress" required autocomplete="off" />
+                                </div>
+
+
+
+                                <button style="margin-top:10px" type="submit" class="button button-block"> Register</button>
+
+                            </form>
+
+                        </div>
+
+         </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="upload" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Upload</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="UploadForm">
+                        <form id='form' class="form-top-margin">
+                            <div class="field-wrap">
+                                <label class="label-width">
+                                    
+                                    <span class="req">*</span>
+                                </label>
+                                <input type="text" name="fname" required autocomplete="off" />
+                            </div>
+                            <div class="field-wrap">
+                                <label class="label-width">
+                                    Category<span class="req">*</span>
+                
+                                </label>
+                                <input type="text" name="Category" required autocomplete="off" />
+                            </div>
+                            <div class="field-wrap">
+                                <label class="label-width">
+                                    Qty<span class="req">*</span>
+                                </label>
+                                <input type="text" name="Qty" required autocomplete="off" />
+                            </div>
+                            <div class="field-wrap">
+                                <label class="label-width">
+                                    Price<span class="req">*</span>
+                                </label>
+                                <input type="text" name="Price" required autocomplete="off" />
+                            </div>
+                            <div class="field-wrap">
+                                <label class="label-width">
+                                    PhoneNo<span class="req">*</span>
+                                </label>
+                                <input type="text" name="PhoneNo" required autocomplete="off" />
+                            </div>
+                            <button style="margin-top:10px" type="submit" class="button button-block">Add</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+<div style="height: 40px;text-align: center;padding: 5px;color: #666;font-size: 17px;" >
+About Us | &nbsp;Our mission &nbsp;|&nbsp; Our vision&nbsp; |&nbsp;cashew Buyer &nbsp;|&nbsp; Cashew seller&nbsp; |&nbsp;Services&nbsp;
+</div>
+
+<div class="col-lg-12  " style="margin: 0px;padding: 1px;">
+    <!-- CAROUSEL SECTION -->
+    <div id="myCarousel" class="carousel slide" style="margin: 0px;" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators" >
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox" id="image1">
+            <div class="item active" >
+                <img src="C:\Users\Elcot\Desktop\blueshade.jpg" alt="" width="1200"  >
+                <div class="carousel-caption">
+                    
+                </div>
+            </div>
+            <div class="item " id="image2">
+                <img src="C:\Users\Elcot\Desktop\red shade.jpg" alt="" width="1200" >
+                <div class="carousel-caption">
+                   
+                </div>
+            </div>
+            <!--D:\apaarr\Images\whyapaar.jpg-->
+
+            <div class="item"  id="image3">
+                <img src="C:\Users\Elcot\Desktop\orangeshade.jpg" alt="Los Angeles" width="1200" >
+                <div class="carousel-caption">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="width: 50px;opacity: 0.099;" >
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"  style="text-decoration-color: gray !important"></span>
+            <span class="sr-only" >Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="width: 50px;opacity: 0.099;">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+</div>
+<div class="col-sm-12">
+<div class="col-sm-6" style="margin: 0px;padding: 0px;">
+
+<div class="col-sm-6" style="padding: 5px;height: 135px;" onclick="listselllogin();">
+    
+<a href="#" class="btnee btnee-xs btnee-outline btnee-primary pull-right" style="width: 100%;height: 100%;text-decoration: none;"><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#9E9E9E"  size="1px;">RAW CASHEW :</font><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#757575"  size="3px;">POST OFFERS</font>
+</a>
+
+</div>
+
+<div class="col-sm-6 " style="padding: 5px;height: 135px;" onclick="listrelogin();">
+    
+<a href="#" class="btnee btnee-xs btnee-outline btnee-primary pull-right" style="width: 100%;height: 100%;text-decoration: none;"><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#9E9E9E"  size="1px;">RAW CASHEW :</font><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#757575"  size="3px;">LIST REQUIREMENTS</font>
+</a>
+
+</div>
+
+
+</div>
+
+<div class="col-sm-6" style="padding: 0px;">
+    
+<div class="col-sm-6 " style="padding: 5px;height: 135px;" onclick="procesedselfunc();">
+    
+<a href="#" class="btnee btnee-xs btnee-outline btnee-primary pull-right" style="width: 100%;height: 100%;text-decoration: none;"><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#9E9E9E"  size="1px;">PROCESSED CASHEW :</font><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#757575"  size="4px;">POST OFFERS</font>
+</a>
+
+</div>
+
+<div class="col-sm-6" style="padding: 5px;height: 135px;" onclick="procllogin();">
+    
+<a href="#" class="btnee btnee-xs btnee-outline btnee-primary pull-right" style="width: 100%;height: 100%;text-decoration: none;"><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#9E9E9E"  size="1px;">PROCESSED CASHEW :</font><BR>
+ <font style="vertical-align: center;font-family: 'Roboto', sans-serif;" color="#757575"  size="4px;">LIST REQUIREMENTS</font>
+</a>
+
+</div>
+
+</div>
+</div>
+
+<div class="container-fluid" style="margin-left: 0px;padding: 0px;">
+
+
+
+
+
+
+
+<div id="apaarr">
+<div class="col-sm-12" style="padding: 10px;">
+<!--card layout-->
+<!--
+<a href="#contact">
+<div class="wrapper wrapper-content animated fadeInRight" style="padding: 0px;">
+<div class="row">
+<div class="col-md-4 col-sm-4">
+<div class="ibox">
+<div class="ibox-content product-box">
+<div class="product-imitation">
+<img src="C:\Users\Elcot\Desktop\raw-cashew.jpg" width="100%" height="100%">
+</div>
+    <div class="product-desc">
+    <span class="product-price">
+        RAW-CASHEW
+    </span>
+    </div>
+
+</div>
+</div>
+</div>
+</a>
+<a href="#contact">
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-md-4 col-sm-4">
+<div class="ibox">
+<div class="ibox-content product-box">
+<div class="product-imitation">
+<img src="C:\Users\Elcot\Desktop\processed-cashew.jpg" width="100%" height="100%">
+</div>
+    <div class="product-desc">
+    <span class="product-price">
+PROCESSED CASHEW
+    </span>
+    </div>
+
+</div>
+
+</div>
+</div>
+</a>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-md-4 col-sm-4">
+<div class="ibox">
+<div class="ibox-content product-box">
+<div class="product-imitation">
+<img src="C:\Users\Elcot\Desktop\processed-cashew.jpg" width="100%" height="100%">
+</div>
+    <div class="product-desc">
+    <span class="product-price">
+       RECENT OFFERS
+    </span>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+-->
+
+
+
+</div>
+</div>
+<!-- templates of buyer and seller -->
+  
+<script id="templateseller" type="text/x-jsrender">
+
+<div class="col-lg-4 col-sm-6 col-md-4">
+     <div class="ibox ">
+<div class="ibox-content product-box iboxsserprocessedcashseller" >
+<div class="product-imitation">
+<img src="C:\Users\Elcot\Desktop\apaar\IMAGEDATA\{{:imagename}}.jpg" style="width: 100%;height: 280px;">
+</div>
+    <div class="product-desc" >
+    <span class="product-price">
+                                    {{:port_of_loading}} WW {{:nut_count}}
+                                </span>
+    <small class="text-muted"></small>
+
+<div class="small m-t-xs">
+          
+
+                                   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Captured on</th>
+        <th>14/03/2017</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Uploaded on</td>
+        <td>15/03/2017</td>
+       
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td> Rs.100/MT </td>
+       
+      </tr>
+      <tr>
+        <td>Quantity</td>
+        <td>{{:qty}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+                                <div class="m-t text-righ" style="padding: 10px;"  id="" data="">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary pull-right" onclick="proddecmod({{:id}});"><font color="white"> View More Info</font> </a>
+                                </div>
+
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+</script>
+  <script id="templatebuyer" type="text/x-jsrender">
+
+<div class="col-md-4 col-sm-6">
+     <div class="ibox iboxss">
+<div class="ibox-content product-box" >
+
+    <div class="product-desc" >
+    <div class="" style="background-color: #1ab394;padding: 5px;">
+                                  <font color="white"> Origin : {{:country}}</font> 
+                                </div>
+    <small class="text-muted"></small>
+
+<div class="small m-t-xs">
+                                   
+                                   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Buyer Name</th>
+        <th>{{:uname}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Preffered Port</td>
+        <td> {{:port_of_loading}} </td>
+       
+      </tr>
+      <tr>
+        <td>Nut Count</td>
+        <td>{{:nut_count}}</td>
+       
+      </tr>
+      
+      <tr>
+        <td>Quantity Required</td>
+        <td>{{:qty}} MT</td>
+        
+      </tr>
+      <tr>
+        <td>At Price</td>
+        <td> {{:total_cashew}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+                                <div class="m-t text-righ" style="padding: 10px;"  id="" data="">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary pull-right" data-prodid="{{:id}}" onclick="proddecmodbuyer({{:id}});" ><font color="white"> View More Info</font> </a>
+
+                                </div>
+
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </script>
+
+     <script id="templateprocessedbuyer" type="text/x-jsrender">
+
+<div class="col-md-4 col-sm-6">
+     <div class="ibox iboxsserprocessed">
+<div class="ibox-content product-box" >
+
+    <div class="product-desc" >
+    <div class="" style="background-color: #1ab394;padding: 5px;">
+                                  <font color="white"> Origin : {{:country}}</font> 
+                                </div>
+    <small class="text-muted"></small>
+
+<div class="small m-t-xs">
+                                   
+                                   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Buyer Name</th>
+        <th>{{:uname}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Preffered Port</td>
+        <td> {{:port_of_loading}} </td>
+       
+      </tr>
+     
+      <tr>
+        <td>Quantity Required</td>
+        <td>{{:qty}} MT</td>
+        
+      </tr>
+      <tr>
+        <td>At Price</td>
+        <td> {{:total_cashew}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+                                <div class="m-t text-righ" style="padding: 10px;"  id="" data="">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary pull-right" data-prodid="{{:id}}" onclick="processedbuyerinfo({{:id}});" ><font color="white"> View More Info</font> </a>
+
+                                </div>
+
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <script id="viewmoreinfo" type="text/x-jsrender">
+       <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-lg-12">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+
+ <table class="table table-striped" style="font-size: 15px;">
+    <thead>
+      <tr>
+        <th>Crop</th>
+        <th>{{:year_of_crop}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{:country}}</td>
+        <td>NIL</td>
+       
+      </tr>
+       <tr>
+        <td contenteditable="true" >Quantity</td>
+        <td>{{:qty}}</td>
+       
+      </tr>
+      <tr>
+        <td>Out turn Guarantee</td>
+        <td>{{:out_turn_guarantee}}</td>
+       
+      </tr>
+      <tr>
+        <td>Max Defective ( % )</td>
+        <td>{{:max_defective}}</td>
+        
+      </tr>
+       <tr>
+        <td>Max Moisture ( % )</td>
+        <td>{{:max_moisture}}</td>
+      </tr>
+      <tr>
+        <td>FOB Price ($)</td>
+        <td>{{:nut_count}}</td> 
+      </tr>
+      
+      </tbody></table>
+                                    
+
+                                </div>
+                               <div class="col-md-6 col-lg-6 col-sm-6" >
+
+                                   
+                                   
+
+                                    
+                                    <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+                                       
+ <table class="table table-striped" style="font-size: 15px;">
+    <thead>
+      <tr>
+        <th>Packing</th>
+        <th>{{:packing}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+     
+     
+      <tr>
+        <td>Loading</td>
+        <td>{{:loading}}</td>
+      </tr>
+      <tr>
+        <td>Inspection</td>
+        <td>{{:inspection}}</td> 
+      </tr>
+       <tr>
+        <td>Payment Terms </td>
+        <td>{{:payment_terms}}</td> 
+      </tr>
+       <tr>
+        <td>Landing Port </td>
+        <td>{{:port_of_loading}}</td> 
+      </tr>
+     <tr>
+        <td>Shipment Month</td>
+        <td>{{:shipment_month}}</td> 
+      </tr>
+       <tr>
+        <td>Delivery Location</td>
+        <td>{{:bangalore}}</td>
+        
+
+      </tr>
+    </tbody>
+  </table>
+                                        
+                                    </dl>
+                                    <div class="text-right">
+                                        <div class="btn-group">
+                                          
+                                            <button class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i>   Negotiate  </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+
+    </script>
+
+
+
+
+
+    <script id="viewmoreinfoprocseller" type="text/x-jsrender">
+       <div class="row" style="width: 100%;">
+
+<div class="row">
+ <div class="modal-body" style="width: 100%; height: 400px;overflow-y: auto; padding-bottom: 10px;margin-left: 25px;margin-top: 0px;">
+
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-sm-12">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-sm-6" >
+
+<div style="width: 250px;height: 250px;border: 5px;border-color: black !important;margin-left: 25%;">
+    <img id="output" src="C:\Users\Elcot\Desktop\apaar\IMAGEDATA\{{:imagename}}.jpg" style="width: 100%;height: 100%;">
+</div>
+<br>
+
+   
+
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th style="margin: 0px;padding: 0px;">{{:uname}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>E-Mail</td>
+        <td style="margin: 0px;padding: 0px;">{{:email}}</td>
+       
+      </tr>
+       <tr>
+        <td>Phone-no</td>
+        <td style="margin: 0px;padding: 0px;">{{:phone}}</td>
+       
+      </tr>
+       <tr>
+        <td>Type</td>
+        <td>{{:type}}</td>
+       
+      </tr>
+      <tr>
+        <td>Grade</td>
+       <td style="margin: 0px;padding: 0px;">{{:qandg}}</td>
+       
+      </tr>
+      <tr>
+        <td>Quantity Offered</td>
+        <td style="margin: 0px;padding: 0px;">{{:qty}}</td>
+       
+      </tr>
+      </tbody></table>
+                                    
+
+                                </div>
+                               <div class="col-sm-6" >
+
+                                   
+                                    
+                                    <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+                                       
+ <table class="table table-striped">
+  
+    <tbody>
+      <tr>
+        <td>Price</td>
+         <td style="margin: 0px;padding: 0px;">{{:price}}</td>
+      </tr>
+      <tr>
+        <td  >Price/Kg</td>
+    <td style="margin: 0px;padding: 0px;"><input type="text"   style="width: 100%; height: 23px;border: 0px;"></td>
+       
+      </tr>
+      <tr>
+        <td>Validity</td>
+ <td style="margin: 0px;padding: 0px;"></td>
+       
+      </tr>
+        <tr>
+        <td>Crop Origin</td>
+        <td style="margin: 0px;padding: 0px;"></td>
+       
+      </tr>
+        <tr>
+        <td>Processed at</td>
+       <td style="margin: 0px;padding: 0px;"></td>
+       
+      </tr>
+       <tr>
+        <td>Tax</td>
+      <td style="margin: 0px;padding: 0px;"></td>
+     
+      </tr>
+      <tr>
+        <td>Max Defective ( % )</td>
+        <td style="margin: 0px;padding: 0px;">{{:max_defective}}</td>
+        
+      </tr>
+      <tr>
+        <td>Max Moisture ( % )</td>
+      <td style="margin: 0px;padding: 0px;">{{:max_moisture}}</td>
+     
+      </tr>
+      <tr>
+        <td>Quality and Gr</td>
+       <td>{{:qandg}}</td>
+      </tr>
+      <tr>
+        <td>NSLG NLG Max(%)</td>
+           <td style="margin: 0px;padding: 0px;">{{:nslg}}
+      </tr>
+    <tr>
+        <td>Packing</td>
+         <td></td>
+        
+
+      </tr>
+       <tr>
+        <td>Delivery Location</td>
+          <td style="margin: 0px;padding: 0px;"><input name="deliveryloc" type="text"  style="width: 100%; height: 23px;border: 0px;"></td>
+        
+
+      </tr>
+      
+      <tr>
+        <td>Inspection</td>
+      <td> </td>
+      </tr>
+       <tr>
+        <td>Payment Terms </td>
+        <td style="margin: 0px;padding: 0px;"></td>
+        </tr>
+      
+    </tbody>
+  </table>
+                                        
+                                    </dl>
+                                   <div class="text-right">
+                                        <div class="btn-group">
+
+                                            <button class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i>   Negotiate  </button>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+
+</div>
+                                        
+                                        
+
+                
+
+                </div>
+            </div>
+
+    </script>
+
+
+
+
+
+
+<script id="viewmoreinfoprocessedbuyer" type="text/x-jsrender">
+       <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-lg-12">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+
+ <table class="table table-striped" style="font-size: 15px;">
+    <thead>
+       <tr>
+        <td>Raw Origin</td>
+        <td> {{:country}}</td>
+       
+      </tr>
+     
+    </thead>
+    <tbody>
+     <tr>
+        <th>Size</th>
+        <th>{{:type}} {{:size}}</th>
+       
+      </tr>
+   
+       <tr>
+        <td contenteditable="true" >Quality and grading</td>
+        <td>{{:qandg}}</td>
+       
+      </tr>
+      <tr>
+        <td>Quantity Required</td>
+        <td>{{:qty}}</td>
+       
+      </tr>
+      <tr>
+        <td>Max Defective ( % )</td>
+        <td>{{:max_defective}}</td>
+        
+      </tr>
+       <tr>
+        <td>Max Moisture ( % )</td>
+        <td>{{:max_moisture}}</td>
+      </tr>
+       <tr>
+        <td>Delivery location</td>
+        <td>{{:port_of_loading}}</td>
+      </tr>
+       <tr>
+        <td>Preferred processing loction </td>
+        <td>{{:loading}}</td> 
+      </tr>
+     
+      </tbody></table>
+                                    
+
+                                </div>
+                               <div class="col-md-6 col-lg-6 col-sm-6" >
+
+                                   
+                                   
+
+                                    
+                                    <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+                                       
+ <table class="table table-striped" style="font-size: 15px;">
+    <thead>
+     <tr>
+        <td>Preferred processing loction </td>
+        <td>{{:loading}}</td> 
+      </tr>
+      
+      <tr>
+        <td>Packing</td>
+        <td>{{:packing}}</td>
+       
+      </tr>
+    </thead>
+    <tbody>
+     
+     
+      <tr>
+        <td>Nslg NLG Max(%) </td>
+        <td>{{:nslg}}</td>
+      </tr>
+      <tr>
+        <td>Inspection</td>
+        <td>{{:inspection}}</td> 
+      </tr>
+       <tr>
+        <td>Payment Terms </td>
+        <td>{{:payment_terms}}</td> 
+      </tr>
+       <tr>
+        <td >FOB </td>
+         <td >{{:fob}}</td>
+</tr>
+<tr>
+        <td>CIF</td>
+        <td >{{:cif}}</td>
+        
+
+      </tr>
+     <tr>
+        <td>Shipment Month</td>
+        <td>{{:shipment_month}}</td> 
+      </tr>
+       
+      
+    </tbody>
+  </table>
+                                        
+                                    </dl>
+                                    <div class="text-right">
+                                        <div class="btn-group">
+                                          
+                                            <button class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i>   Negotiate  </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+
+    </script>
+
+
+
+
+
+
+<script id="noitems" type="text/x-jsrender">
+       <div class="row" style="width: 100%;margin: 3px;" >
+
+<div class="row">
+                <div class="col-lg-12">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+
+                            NO ITEMS
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </script>
+
+
+
+
+
+
+<script id="tab1rawbuyer" type="text/x-jsrender">
+       <div class="row" style="width: 100%;margin: 3px; " >
+
+<div class="row" >
+                <div class="col-lg-12"  ">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+
+ <table class="table table-striped" style="font-size: 15px;">
+    <thead>
+      <tr>
+        <th>Crop</th>
+        <th>{{:year_of_crop}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{:country}}</td>
+        <td>NIL</td>
+       
+      </tr>
+       <tr>
+        <td >Quantity <b>( Editable)</b> </td>
+        <td contenteditable="true">{{:qty}}</td>
+       
+      </tr>
+      <tr>
+        <td>Out turn Guarantee</td>
+        <td>{{:out_turn_guarantee}}</td>
+       
+      </tr>
+      <tr>
+        <td>Max Defective ( % )</td>
+        <td>{{:max_defective}}</td>
+        
+      </tr>
+       <tr>
+        <td>Max Moisture ( % )</td>
+        <td>{{:max_moisture}}</td>
+      </tr>
+      <tr>
+        <td>FOB Price ($) <b> ( Editable ) </b></td>
+        <td contenteditable="true">{{:nut_count}}</td> 
+      </tr>
+      
+      </tbody></table>
+                                    
+
+                                </div>
+                               <div class="col-md-6 col-lg-6 col-sm-6" >
+
+                                   
+                                   
+
+                                    
+                                    <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+                                       
+ <table class="table table-striped" style="font-size: 15px;">
+    <thead>
+      <tr>
+        <th>Packing</th>
+        <th>{{:packing}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+     
+     
+      <tr>
+        <td>Loading</td>
+        <td>{{:loading}}</td>
+      </tr>
+      <tr>
+        <td>Inspection</td>
+        <td>{{:inspection}}</td> 
+      </tr>
+       <tr>
+        <td>Payment Terms </td>
+        <td>{{:payment_terms}}</td> 
+      </tr>
+       <tr>
+        <td>Landing Port </td>
+        <td>{{:port_of_loading}}</td> 
+      </tr>
+     <tr>
+        <td>Shipment Month</td>
+        <td>{{:shipment_month}}</td> 
+      </tr>
+       <tr>
+        <td>Delivery Location</td>
+        <td>{{:bangalore}}</td>
+        
+
+      </tr>
+    </tbody>
+  </table>
+                                        
+                                    </dl>
+                                    <div class="text-right">
+                                        <div class="btn-group">
+                                          
+                                        <button class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i>   Update  </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+ <script id="templaterawseller" type="text/x-jsrender">
+
+<div class="col-lg-4 col-sm-6 col-md-4">
+     <div class="ibox iboxsser">
+<div class="ibox-content product-box" >
+
+    <div class="product-desc" >
+    <div class="" style="background-color: #1ab394;padding: 5px;">
+                                  <font color="white"> Origin : {{:country}}</font> 
+                                </div>
+    <small class="text-muted"></small>
+
+<div class="small m-t-xs">
+                                   
+                                     <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Seller Name</th>
+        <th>{{:uname}}</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nut Count</td>
+        <td>{{:nut_count}}</td>
+       
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td> {{:total_cashew}} </td>
+       
+      </tr>
+      <tr>
+        <td>Quantity Available</td>
+        <td>{{:qty}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+                                <div class="m-t text-righ" style="padding: 10px;"  id="" data="">
+
+                        
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary pull-right" data-prodid="{{:id}}" onclick="processedddecmodbuyer(s={{:id}});" >
+                                    <font color="white"> View More Info</font> 
+                                    </a>
+
+                                </div>
+
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </script>
+
+
+
+
+
+<!-- end of template of buyer and seller -->
+
+    <script type="text/javascript">
+           getProducts();
+        function getProducts() {
+            $("#div-for-badge").html('');
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = this.responseText;
+                    res = JSON.parse(res);
+
+
+                    $("#div-for-badge").html($("#templatebuyer").render(res));
+                    pagingtables();
+                }
+            };
+            xmlhttp.open("GET", "http://localhost/get_apaar_buyer.php", true);
+            xmlhttp.send();
+
+        }
+
+function pagingtables() {
+    // Consider adding an ID to your table
+    // incase a second table ever enters the picture.
+    //var items = $("#newtables tbody tr");
+
+if (screen && screen.width > 480) {
+ 
+
+    var items=$('.iboxss')
+
+    var numItems = items.length;
+
+
+    var perPage = 3;
+
+
+    // Only show the first 2 (or first `per_page`) items initially.
+    items.slice(perPage).hide();
+
+    // Now setup the pagination using the `.pagination-page` div.
+    $(".pagination-page").pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        cssStyle: "compact-theme",
+
+        // This is the actual page changing functionality.
+        onPageClick: function(pageNumber) {
+            // We need to show and hide `tr`s appropriately.
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+
+            // We'll first hide everything...
+            items.hide()
+                 // ... and then only show the appropriate rows.
+                 .slice(showFrom, showTo).show();
+        }
+    });
+}
+else
+{
+ 
+
+    var items=$('.iboxss')
+
+    var numItems = items.length;
+
+
+    var perPage = 6;
+
+    // Only show the first 2 (or first `per_page`) items initially.
+    items.slice(perPage).hide();
+
+    // Now setup the pagination using the `.pagination-page` div.
+    $(".pagination-page").pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        cssStyle: "compact-theme",
+
+        // This is the actual page changing functionality.
+        onPageClick: function(pageNumber) {
+            // We need to show and hide `tr`s appropriately.
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+
+            // We'll first hide everything...
+            items.hide()
+                 // ... and then only show the appropriate rows.
+                 .slice(showFrom, showTo).show();
+        }
+    });  
+}
+
+
+
+
+
+    // EDIT: Let's cover URL fragments (i.e. #page-3 in the URL).
+    // More thoroughly explained (including the regular expression) in: 
+    // https://github.com/bilalakil/bin/tree/master/simplepagination/page-fragment/index.html
+
+    // We'll create a function to check the URL fragment
+    // and trigger a change of page accordingly.
+    function checkFragment() {
+        // If there's no hash, treat it like page 1.
+        var hash = window.location.hash || "#page-1";
+
+        // We'll use a regular expression to check the hash string.
+        hash = hash.match(/^#page-(\d+)$/);
+
+        if(hash) {
+            // The `selectPage` function is described in the documentation.
+            // We've captured the page number in a regex group: `(\d+)`.
+            $(".pagination-page").pagination("selectPage", parseInt(hash[1]));
+        }
+    };
+
+    // We'll call this function whenever back/forward is pressed...
+    //$(window).bind("popstate", checkFragment);
+
+    // ... and we'll also call it when the page has loaded
+    // (which is right now).
+    //checkFragment();
+
+
+
+};
+function pagingertables() {
+    // Consider adding an ID to your table
+    // incase a second table ever enters the picture.
+    //var items = $("#newtables tbody tr");
+    
+
+if (screen && screen.width > 480) {
+ 
+    var items=$('.iboxsser')
+
+    var numItems = items.length;
+    var perPage = 3;
+
+    // Only show the first 2 (or first `per_page`) items initially.
+    items.slice(perPage).hide();
+
+    // Now setup the pagination using the `.pagination-page` div.
+    $(".paginationer-page").pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        cssStyle: "compact-theme",
+
+        // This is the actual page changing functionality.
+        onPageClick: function(pageNumber) {
+            // We need to show and hide `tr`s appropriately.
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+
+            // We'll first hide everything...
+            items.hide()
+                 // ... and then only show the appropriate rows.
+                 .slice(showFrom, showTo).show();
+        }
+    });
+
+}
+else
+{
+
+    var items=$('.iboxsser')
+
+    var numItems = items.length;
+    var perPage = 6;
+
+    // Only show the first 2 (or first `per_page`) items initially.
+    items.slice(perPage).hide();
+
+    // Now setup the pagination using the `.pagination-page` div.
+    $(".paginationer-page").pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        cssStyle: "compact-theme",
+
+        // This is the actual page changing functionality.
+        onPageClick: function(pageNumber) {
+            // We need to show and hide `tr`s appropriately.
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+
+            // We'll first hide everything...
+            items.hide()
+                 // ... and then only show the appropriate rows.
+                 .slice(showFrom, showTo).show();
+        }
+    });
+}
+
+    // EDIT: Let's cover URL fragments (i.e. #page-3 in the URL).
+    // More thoroughly explained (including the regular expression) in: 
+    // https://github.com/bilalakil/bin/tree/master/simplepagination/page-fragment/index.html
+
+    // We'll create a function to check the URL fragment
+    // and trigger a change of page accordingly.
+    function checkFragment() {
+        // If there's no hash, treat it like page 1.
+        var hash = window.location.hash || "#page-1";
+
+        // We'll use a regular expression to check the hash string.
+        hash = hash.match(/^#page-(\d+)$/);
+
+        if(hash) {
+            // The `selectPage` function is described in the documentation.
+            // We've captured the page number in a regex group: `(\d+)`.
+            $(".paginationer-page").pagination("selectPage", parseInt(hash[1]));
+        }
+    };
+
+    // We'll call this function whenever back/forward is pressed...
+    //$(window).bind("popstate", checkFragment);
+
+    // ... and we'll also call it when the page has loaded
+    // (which is right now).
+    //checkFragment();
+
+
+
+};
+
+function paginerprocessedtablesseller() {
+    // Consider adding an ID to your table
+    // incase a second table ever enters the picture.
+    //var items = $("#newtables tbody tr");
+   
+
+
+
+    var items=$('.iboxsserprocessedcashseller');
+
+ 
+    var numItems = items.length;
+   
+
+
+if (screen && screen.width > 480) {
+    var perPage = 3;
+}
+else
+{
+   var perPage = 6; 
+}
+    // Only show the first 2 (or first `per_page`) items initially.
+    items.slice(perPage).hide();
+
+    // Now setup the pagination using the `.pagination-page` div.
+    $(".paginationerprocseller-page").pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        cssStyle: "compact-theme",
+
+        // This is the actual page changing functionality.
+        onPageClick: function(pageNumber) {
+            // We need to show and hide `tr`s appropriately.
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+
+            // We'll first hide everything...
+            items.hide()
+                 // ... and then only show the appropriate rows.
+                 .slice(showFrom, showTo).show();
+        }
+    });
+
+
+
+    // EDIT: Let's cover URL fragments (i.e. #page-3 in the URL).
+    // More thoroughly explained (including the regular expression) in: 
+    // https://github.com/bilalakil/bin/tree/master/simplepagination/page-fragment/index.html
+
+    // We'll create a function to check the URL fragment
+    // and trigger a change of page accordingly.
+    function checkFragment() {
+        // If there's no hash, treat it like page 1.
+        var hash = window.location.hash || "#page-1";
+
+        // We'll use a regular expression to check the hash string.
+        hash = hash.match(/^#page-(\d+)$/);
+
+        if(hash) {
+            // The `selectPage` function is described in the documentation.
+            // We've captured the page number in a regex group: `(\d+)`.
+            $(".paginationerprocseller-page").pagination("selectPage", parseInt(hash[1]));
+        }
+    };
+
+    // We'll call this function whenever back/forward is pressed...
+    //$(window).bind("popstate", checkFragment);
+
+    // ... and we'll also call it when the page has loaded
+    // (which is right now).
+    //checkFragment();
+
+
+
+};
+
+
+
+function paginerprocessedtables() {
+    // Consider adding an ID to your table
+    // incase a second table ever enters the picture.
+    //var items = $("#newtables tbody tr");
+    var items=$('.iboxsserprocessed');
+
+    var numItems = items.length;
+   
+
+if (screen && screen.width > 480) {
+
+
+    var perPage = 3;
+}
+else
+{
+    var perPage = 6; 
+}
+    // Only show the first 2 (or first `per_page`) items initially.
+    items.slice(perPage).hide();
+
+    // Now setup the pagination using the `.pagination-page` div.
+    $(".paginationerproc-page").pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        cssStyle: "compact-theme",
+
+        // This is the actual page changing functionality.
+        onPageClick: function(pageNumber) {
+            // We need to show and hide `tr`s appropriately.
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+
+            // We'll first hide everything...
+            items.hide()
+                 // ... and then only show the appropriate rows.
+                 .slice(showFrom, showTo).show();
+        }
+    });
+
+
+
+    // EDIT: Let's cover URL fragments (i.e. #page-3 in the URL).
+    // More thoroughly explained (including the regular expression) in: 
+    // https://github.com/bilalakil/bin/tree/master/simplepagination/page-fragment/index.html
+
+    // We'll create a function to check the URL fragment
+    // and trigger a change of page accordingly.
+    function checkFragment() {
+        // If there's no hash, treat it like page 1.
+        var hash = window.location.hash || "#page-1";
+
+        // We'll use a regular expression to check the hash string.
+        hash = hash.match(/^#page-(\d+)$/);
+
+        if(hash) {
+            // The `selectPage` function is described in the documentation.
+            // We've captured the page number in a regex group: `(\d+)`.
+            $(".paginationerproc-page").pagination("selectPage", parseInt(hash[1]));
+        }
+    };
+
+    // We'll call this function whenever back/forward is pressed...
+    //$(window).bind("popstate", checkFragment);
+
+    // ... and we'll also call it when the page has loaded
+    // (which is right now).
+    //checkFragment();
+
+
+
+};
+        
+           getProductsviewalllistreq();
+        function getProductsviewalllistreq() {
+            $("#div-for-viewallrawcashewlistyourreq").html('');
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = this.responseText;
+                    res = JSON.parse(res);
+                    $("#div-for-viewallrawcashewlistyourreq").html($("#templatebuyerviewall").render(res));
+                }
+            };
+            xmlhttp.open("GET", "http://localhost/get_apaar_buyer.php", true);
+            xmlhttp.send();
+
+        }
+
+
+
+
+
+
+
+              getProd();
+        function getProd() {
+            $("#div-for-badge-PROCESSED").html('');
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = this.responseText;
+                    res = JSON.parse(res);
+
+                    $("#div-for-badge-PROCESSED").html($("#templateprocessedbuyer").render(res));
+                    paginerprocessedtables();
+                }
+            };
+            xmlhttp.open("GET", "http://localhost/get_apaar_processed_buyer.php", true);
+            xmlhttp.send();
+
+        }
+        getProduct();
+        function getProduct() {
+            $("#processed-cashew-postoffer").html('');
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = this.responseText;
+                    res = JSON.parse(res);
+                    $("#processed-cashew-postoffer").html($("#templateseller").render(res));
+paginerprocessedtablesseller();
+                    
+                }
+            };
+            xmlhttp.open("GET", "http://localhost/get_full_apaar_processed_seller.php", true);
+            xmlhttp.send();
+
+        }
+         getProductraww();
+        function getProductraww() {
+            $("#raw-cashew-postoffer").html('');
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = this.responseText;
+                    res = JSON.parse(res);
+                    $("#raw-cashew-postoffer").html($("#templaterawseller").render(res));
+                    pagingertables()
+                }
+            };
+            xmlhttp.open("GET", "http://localhost/get_apaarr_seller.php", true);
+            xmlhttp.send();
+
+        }
+
+    </script>
+    </div>
+    
+    
+
+<div id="rawcashewnavbar">
+<!--apaar_RAWCASHEW_buyer__list your requiremnts -->
+<div class="container-fluid" style="margin: 5px;">
+<div class="header" style="background-color:  #2874f0 !important;text-align: center;padding: 5px;">
+       <font  color="white" size="4px" style="text-align: left;" > RAW CASHEW - REQUIREMENTS </font>
+       <input type="button"  name="" id="rawbuyer" onclick="listrelogin();" value="LIST YOUR REQUIREMENTS" style="float: right; color: white !important; background-color:  #2469d9 !important;" >
+
+       
+    </div> 
+  
+<!--div body-->
+<div class="mainbody" >
+<div class="col-xs-12" style="background-color : #E8EAF6 !important; padding: 10px;" >
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-md-2 hidden-sm" style="background-color: white !important;height: 305px;">
+   <br><br> <h2 style="vertical-align: center;font-size: 23px;align-content: center;"><br><br>&nbsp;&nbsp;&nbsp;View All Offers <br>
+    <br>
+    <a href="file:///C:/Users/Elcot/Desktop/apaar/rawcashewlistre.html">
+    <button type="button"  class="btn btn-w-m btn-primary" style="margin-left: 40px; opacity: 100;height: 35px;margin-top: 5px; opacity: 1; background-color: #2874f0;text-align: center;" onclick="viewallrawlistreq()">View All</button></a>
+     </h2>
+</div>
+<div class="col-md-10 col-sm-12">
+<div id="div-for-badge">
+</div>
+</div>
+<div style="float: right;" class="pagination-page"></div>
+</div>
+</div>
+</div>
+<!--end of div body-->
+
+</div>
+
+</div>
+
+
+
+
+<!-- end of apaar_RAWCASHEW_buyer__list your requiremnts -->
+
+
+
+<!--apaar_RAWCASHEW_seller__post your offers -->
+<div class="container-fluid" style="margin: 5px;">
+<div class="header" style="background-color:  #2874f0 !important;;text-align: center;padding: 5px;">
+       <font  color="white" size="4px" style="text-align: center;" > RAW CASHEW - AVAILABILITY </font>
+       <input type="button"  id="rawseller" name="" value="POST YOUR OFFERS" onclick="listselllogin();" style="float: right; color: white !important; background-color:  #2469d9 !important;" >
+    </div> 
+  
+<!--div body-->
+     <div class="mainbody" >
+<div class="col-lg-12" style="background-color : #E8EAF6 !important; padding: 10px;" >
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+<div class="row">
+<div class="col-md-2 hidden-sm" style="background-color: white !important;height: 250px;">
+   <br><br> <h2 style="vertical-align: center;font-size: 23px;align-content: center;"><br><br>&nbsp;&nbsp;&nbsp;View All Offers <br>
+    <br>
+<a href="file:///C:/Users/Elcot/Desktop/apaar/rawcashewlistavailability.html">
+<button type="button"  class="btn btn-w-m btn-primary" style="margin-left: 40px; opacity: 100;height: 35px;margin-top: 5px; opacity: 1; background-color: #2874f0;text-align: center;">View All</button></a>
+     </h2>
+</div>
+<div class="col-md-10 col-sm-12">
+<div id="raw-cashew-postoffer">
+</div>
+</div>
+<div style="float: right;" class="paginationer-page"></div>
+</div>
+</div>
+</div>
+<!--end of div body-->
+
+</div>
+
+</div>
+<!-- end of apaar_RAWCASHEW_seller__post your offers -->
+
+
+
+</div>
+
+<div id="processedcashewnavbar">
+<!--apaar_PROCESSED - CASHEW_buyer__list your requiremnts -->
+<div class="container-fluid" style="margin: 5px;">
+<div class="header" style="background-color:  #2874f0 !important;text-align: center;padding: 5px;">
+       <font  color="white" size="4px" style="text-align: center;" > PROCESSED CASHEW - REQUIREMENTS </font>
+       <input type="button" id="prbuyer" name="" value="LIST YOUR REQUIREMENTS" style="float: right; color: white !important; background-color:  #2469d9 !important;" onclick="procllogin();" >
+    </div> 
+  
+
+<!--end of div body-->
+
+
+
+<div class="mainbody" >
+<div class="col-xs-12" style="background-color : #E8EAF6 !important; padding: 10px;" >
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-md-2 hidden-sm" style="background-color: white !important;height: 270px;">
+   <br><br> <h2 style="vertical-align: center;font-size: 23px;align-content: center;"><br><br>&nbsp;&nbsp;&nbsp;View All Offers <br>
+    <br>
+    <a href="file:///C:/Users/Elcot/Desktop/apaar/proccashewlistre.html">
+    <button type="button"  class="btn btn-w-m btn-primary" style="margin-left: 40px; opacity: 100;height: 35px;margin-top: 5px; opacity: 1; background-color: #2874f0;text-align: center;" onclick="viewallrawlistreq()">View All</button></a>
+     </h2>
+</div>
+<div class="col-md-10 col-sm-12">
+<div id="div-for-badge-PROCESSED">
+</div>
+</div>
+<div style="float: right;" class="paginationerproc-page"></div>
+</div>
+</div>
+</div>
+<!--end of div body-->
+
+</div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+<!--apaar_PROCESSED - CASHEW_seller__post your offers -->
+<div class="container-fluid" style="margin: 5px;">
+<div class="header" style="background-color:  #2874f0 !important;;text-align: center;padding: 5px;">
+       <font  color="white" size="4px" style="text-align: center;" > PROCESSED CASHEW - AVAILABILITY </font>
+       <input id="prseller" type="button" name=""  onclick="procesedselfunc();" value="POST YOUR OFFERS" style="float: right; color: white !important; background-color:  #2469d9 !important;" >
+    </div> 
+  
+
+
+
+<div class="mainbody" >
+<div class="col-xs-12" style="background-color : #E8EAF6 !important; padding: 10px;" >
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+<div class="col-md-2 hidden-sm" style="background-color: white !important;height: 510px;">
+   <br><br> <h2 style="vertical-align: center;font-size: 23px;align-content: center;"><br><br><br><br><br><br>&nbsp;&nbsp;&nbsp;View All Offers <br>
+    <br>
+    <a href="file:///C:/Users/Elcot/Desktop/apaar/proccashewlistavailability.html">
+    <button type="button"  class="btn btn-w-m btn-primary" style="margin-left: 40px; opacity: 100;height: 35px;margin-top: 5px; opacity: 1; background-color: #2874f0;text-align: center;" onclick="viewallrawlistreq()">View All</button></a>
+     </h2>
+</div>
+<div class="col-md-10 col-sm-12">
+<div id="processed-cashew-postoffer">
+</div>
+</div>
+<div style="float: right;" class="paginationerprocseller-page"></div>
+</div>
+</div>
+</div>
+<!--end of div body-->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<!-- end of apaar_procCASHEW_seller__post your offers -->
+
+
+<!-- PRODUCT DESCRIPTION MODALS -->
+
+
+</div>
+
+
+
+<!-- RAE CASHEW POST YOUR OFFERS MODAL-->
+<div id="ourmission" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;" >
+                                <div class="modal-dialog" style="width: 90%; height: 330px; background-color: #E8EAF6;border-radius: 50px;">
+                                    <div class="modal-content" style="width: 100%;  height: 100%;margin-top: 0px;border-radius: 30px;">
+                                    <div class="modal-header" style="height: 50px;padding: 0px;border-radius: 30px; background-color:  #2874f0   !important; font-size: 30px" >
+                                    <span onclick="document.getElementById('ourmission').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 5px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color:  #2874f0   !important;border-radius: 30px;margin-top: 10px; clear: text-color :black !important; "><font color="white">Our Mission</font> </h4>
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-sm-12">
+<div style="margin :30px;text-align: center;">
+                <font size="5px;"> 
+                 To establish our position as the market leader in sourcing<br>
+To be an ethical and reputable company<br>
+To eliminate the procurement problems of our customers<br>
+To enrich our experience in the sourcing field<br>
+To add value to community, public and the society
+              </font>
+              </div>    
+
+                </div>
+            </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="ourvision" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;" >
+                                <div class="modal-dialog" style="width: 90%; height: 250px; background-color: #E8EAF6;border-radius: 50px;">
+                                    <div class="modal-content" style="width: 100%;  height: 100%;margin-top: 0px;border-radius: 30px;">
+                                    <div class="modal-header" style="height: 50px;padding: 0px;border-radius: 30px; background-color:  #2874f0   !important; font-size: 30px" >
+                                    <span onclick="document.getElementById('ourvision').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 5px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color:  #2874f0   !important;border-radius: 30px;margin-top: 10px; clear: text-color :black !important; "><font color="white">Our Vision</font> </h4>
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-sm-12">
+<div style="margin :30px;">
+                <font size="5px;"> 
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our Company's Vision is to be the best and cost efficient International Sourcing Company with the goal to serve as a liaison in the procurement needs of our clients and provide the best service to our clientele.
+              </font>
+              </div>    
+
+                </div>
+            </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- end of raw cashew post your offers modal-->
+
+
+<form id="proccashpostoffform"  method="post" enctype="multipart/form-data" >
+<div id="proccashpostoff" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;" >
+                                <div class="modal-dialog" style="width: 90%; height: 530px; background-color: #E8EAF6;">
+                                    <div class="modal-content" style="width: 100%;  height: 100%;margin-top: 0px;">
+                                    <div class="modal-header" style="height: 50px;padding: 0px; background-color:  #2874f0   !important; font-size: 30px" >
+                                    <span onclick="document.getElementById('proccashpostoff').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 5px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color:  #2874f0   !important;margin-top: 10px; clear: text-color :black !important; "><font color="white">PROCESSED CASHEW - AVAILABILITY</font> </h4>
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-sm-12">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-sm-6" >
+
+<div style="width: 250px;height: 250px;border: 5px;border-color: black !important;margin-left: 25%;">
+    <img id="output" src="C:\Users\Elcot\Desktop\desktop\uploadcashewimage.jpg" style="width: 100%;height: 100%;">
+</div>
+<br>
+
+   
+    <input type="file" name="image" style="margin-left: 32%;" accept="image/*" onchange="loadFile(event);">
+
+
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th style="margin: 0px;padding: 0px;"><input type="text" name="Name" placeholder="Enter name" style="width: 100%;height: 23px;border: 0px;"></th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>E-Mail</td>
+        <td style="margin: 0px;padding: 0px;"><input type="text" name="email" placeholder="Enter E-Mail" style="width: 100%; height: 23px;border: 0px;background-color: #F9F9F9 !important;"></td>
+       
+      </tr>
+       <tr>
+        <td>Phone-no</td>
+        <td style="margin: 0px;padding: 0px;"><input type="text" name="phone" placeholder="Enter your number" style="width: 100%; height: 23px;border: 0px;"></td>
+       
+      </tr>
+       <tr>
+        <td>Type</td>
+        <td><select class="form-control " name="type" style="height: 33px; width: 100%; display: inline; ;">
+  
+  <option>Whole</option>
+
+                                        
+                                          <option>Pieces</option>
+                                        
+                                     
+                                    </select></td>
+       
+      </tr>
+      <tr>
+        <td>Grade</td>
+       <td style="margin: 0px;padding: 0px;"><input name="grade" type="text" placeholder="WW180/WW210/Buts.." style="width: 100%; height: 23px;border: 0px;"></td>
+       
+      </tr>
+      <tr>
+        <td>Quantity Offered</td>
+        <td style="margin: 0px;padding: 0px;"><input name="quantity" type="text" placeholder="Enter in MT'S" style="width: 100%;background-color: #F9F9F9 !important; height: 23px;border: 0px;"></td>
+       
+      </tr>
+      </tbody></table>
+                                    
+
+                                </div>
+                               <div class="col-sm-6" >
+
+                                   
+                                    
+                                    <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+                                       
+ <table class="table table-striped">
+  
+    <tbody>
+      <tr>
+        <td>Price</td>
+         <td style="margin: 0px;padding: 0px;"><input name="price" type="text" placeholder="Enter in rs/MT(10 Kg)" style="width: 100%;background-color: #F9F9F9 !important; height: 23px;border: 0px;"></td>
+      </tr>
+      <tr>
+        <td  >Price/Kg</td>
+    <td style="margin: 0px;padding: 0px;"><input type="text"  placeholder="0" style="width: 100%; height: 23px;border: 0px;"></td>
+       
+      </tr>
+      <tr>
+        <td>Validity</td>
+ <td style="margin: 0px;padding: 0px;"><input type="text" name="validity" placeholder="Enter here.." style="width: 100%;background-color: #F9F9F9 !important; height: 23px;border: 0px;"></td>
+       
+      </tr>
+        <tr>
+        <td>Crop Origin</td>
+        <td style="margin: 0px;padding: 0px;"><input type="text" name="croporigin" placeholder="Enter country" style="width: 100%; height: 23px;border: 0px;"></td>
+       
+      </tr>
+        <tr>
+        <td>Processed at</td>
+       <td style="margin: 0px;padding: 0px;"><input type="text" name="processedat" placeholder="Enter here." style="width: 100%;background-color: #F9F9F9 !important; height: 23px;border: 0px;"></td>
+       
+      </tr>
+       <tr>
+        <td>Tax</td>
+      <td style="margin: 0px;padding: 0px;"><input type="text" name="tax" placeholder="Enter in %" style="width: 100%; height: 23px;border: 0px;"></td>
+     
+      </tr>
+      <tr>
+        <td>Max Defective ( % )</td>
+        <td style="margin: 0px;padding: 0px;"><input type="text" name="maxdefect" placeholder="Enter in %" style="width: 100%;background-color: #F9F9F9 !important; height: 23px;border: 0px;"></td>
+        
+      </tr>
+      <tr>
+        <td>Max Moisture ( % )</td>
+      <td style="margin: 0px;padding: 0px;"><input type="text" name="maxmoist" placeholder="Enter in %" style="width: 100%; height: 23px;border: 0px;"></td>
+     
+      </tr>
+      <tr>
+        <td>Quality and Gr</td>
+       <td><select class="form-control" name="qualityandgrad"  style="height: 33px; width: 100%; display: inline; ;">
+  
+  <option>First Quality Fancy</option>
+
+                                        
+                                          <option>Second Quality Scorched</option>
+                                         <option>Third Quality Special Scorched</option>
+                                          <option>Fourth Quaity</option>
+                                           <option>Lightly Blemished Wholes(LNW)</option>
+                                         <option>Lightly blemished pieces(LP)</option>
+                                           <option>Blemished Wholes(BW)</option>
+                                    </select></td>
+      </tr>
+      <tr>
+        <td>NSLG NLG Max(%)</td>
+           <td style="margin: 0px;padding: 0px;"><input name="nslgnlg" type="text" placeholder="Enter in %" style="width: 100%; height: 23px;border: 0px;"></td> 
+      </tr>
+    <tr>
+        <td>Packing</td>
+         <td><select class="form-control " name="packing" style="height: 33px; width: 100%; display: inline; ;">
+  
+  <option>2 Tins of 10 Kg each in a cartoon </option>
+
+                                        
+                                          <option>2 Tins of 25 LBS each in a cartoon</option>
+                                         
+                                    </select></td>
+        
+
+      </tr>
+       <tr>
+        <td>Delivery Location</td>
+          <td style="margin: 0px;padding: 0px;"><input name="deliveryloc" type="text" placeholder="Enter location" style="width: 100%; height: 23px;border: 0px;"></td>
+        
+
+      </tr>
+      
+      <tr>
+        <td>Inspection</td>
+      <td>  <select class="form-control " name="inspection"  style="height: 33px; width: 100%; display: inline; ;">
+  
+  <option>Yes </option>
+
+                                        
+                                          <option>No</option>
+                                         
+                                    </select></td>
+      </tr>
+       <tr>
+        <td>Payment Terms </td>
+        <td style="margin: 0px;padding: 0px;"><input name="payterm" type="text" placeholder="30% in advance" style="width: 100%; height: 23px;border: 0px;"></td>
+        </tr>
+      
+    </tbody>
+  </table>
+                                        
+                                    </dl>
+                                    <div class="text-right">
+                                        <div class="btn-group">
+                                          
+                                            <button onclick="proccashpostoffclick(event);" class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i> Submit  </button>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+
+</div>
+</div>
+</div >
+
+
+</div>
+</form>
+
+<!-- end of raw cashew post your offers modal-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="processedmodalbuyer" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;" >
+                                <div class="modal-dialog" style="width: 90%; height: 460px; background-color: #E8EAF6;">
+                                    <div class="modal-content" style="width: 100%;  height: 100%;">
+                                    <div class="modal-header" style="height: 50px;padding: 0px; background-color: #1A237E   !important; font-size: 30px" >
+                                    <span onclick="document.getElementById('processedmodalbuyer').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 5px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color: #1A237E   !important;margin-top: 15px;clear: text-color :black !important; "><font color="white">Cashew description</font> </h4>
+
+      </div>
+                                    
+                                        <div class="container-fluid" style="margin: 5px;">
+
+<!--div body-->
+<div class="mainbody" >
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+
+<div id="div-for-badgeees">
+
+
+</div>
+</div>
+</div>
+
+<!--end of div body-->
+
+</div>
+
+</div>
+                                     
+
+</div>
+</div>
+</div>
+
+
+
+<div id="proddescmodal" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;" >
+                                <div class="modal-dialog" style="width: 90%; height: 500px; background-color: #E8EAF6;margin-top: 5px;">
+                                    <div class="modal-content" style="width: 100%;  height: 100%;margin: 0px;">
+                                    <div class="modal-header" style="height: 50px;padding: 0px; background-color: #1A237E   !important; font-size: 30px" >
+                                    <span onclick="document.getElementById('proddescmodal').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 5px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color: #1A237E   !important;margin-top: 15px;clear: text-color :black !important; "><font color="white">Cashew description</font> </h4>
+
+      </div>
+                                    
+                                        <div class="container-fluid" style="margin: 5px;">
+
+<!--div body-->
+<div class="mainbody" >
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+
+<div id="div-for-badgeeeproc">
+
+
+</div>
+</div>
+</div>
+
+<!--end of div body-->
+
+</div>
+
+</div>
+                                     
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div id="proddescmodalbuyer" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;" >
+                                <div class="modal-dialog" style="width: 90%; height: 430px; background-color: #E8EAF6;">
+                                    <div class="modal-content" style="width: 100%;  height: 100%;">
+                                    <div class="modal-header" style="height: 50px;padding: 0px; background-color: #1A237E   !important; font-size: 30px" >
+                                    <span onclick="document.getElementById('proddescmodalbuyer').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 5px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color: #1A237E   !important;margin-top: 15px;clear: text-color :black !important; "><font color="white">Cashew description</font> </h4>
+
+      </div>
+                                    
+                                        <div class="container-fluid" style="margin: 5px;">
+
+<!--div body-->
+<div class="mainbody" >
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+
+<div id="div-for-badgeee">
+
+
+</div>
+</div>
+</div>
+
+<!--end of div body-->
+
+</div>
+
+</div>
+                                     
+
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1000, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script> 
+
+<!-- login and signup modal form -->
+<div id="modal-form" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                              <div class="col-sm-6">
+                                                   <img src="C:\Users\Elcot\Desktop\desktop\LOGINNN.jpg" id="logimag" style="width: 100%;height: 100%">
+                                                   <img src="C:\Users\Elcot\Desktop\desktop\REGISTER.jpg" id="regimag" style="width: 100%;height: 100%"><br><br>
+                                                   <label id="labelnewuser" onclick=hideLogin()><u> New User ? Register Here. <u> </label>
+                                                   <label id="labellogin" onclick=hideregister()><u> Click to Log in. <u> </label>
+                                            </div>
+                                                <div class="col-sm-6 b-r" id="signnnin"><h3 class="m-t-none m-b">Sign in</h3>
+
+                                                    <p>Sign in today to know more </p>
+
+                                                    <form role="form">
+                                                        <div class="form-group"><label>Email</label> <input type="email" id="emailidd" placeholder="Enter email" class="form-control"></div>
+                                                        <div class="form-group"><label>Password</label> <input type="password" id="passwordid" placeholder="Password" class="form-control"></div>
+                                                        <div>
+                                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="button1" type="button"  onclick="tologin()" ><strong>Log in </strong></button>
+                                                            <label> <input type="checkbox" class="" >  Remember me </label>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                 <div class="col-sm-6 b-r" id="registerrr"><h3 class="m-t-none m-b">Sign Up</h3>
+
+                    
+
+                                                    <form role="form">
+                                                        <div class="form-group"><label>Email</label> <input type="email" placeholder="Enter email" class="form-control" id="signupemailid"></div>
+                                                        <div class="form-group"><label>Password</label> <input type="password" id="signupenterpass" placeholder="Password" class="form-control"></div>
+                                                         <div class="form-group"><label>Repeat Password</label> <input type="password" placeholder="Password" class="form-control" id="signuprepeatpassword"></div>
+                                                        <div>
+                                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="input" onclick=signup()><strong>Sign Up </strong></button>
+                                                            <label> <input type="checkbox" class="" >  Remember me </label>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                        </div>
+
+
+
+
+
+
+<!-- Dashboard Modal -->
+
+
+<!-- login and signup modal form -->
+
+  
+
+<div id="dashboard-modal" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;"  >
+                                <div class="modal-dialog" style="width: 75%; height: 530px; background-color: #E8EAF6;"  >
+                                    <div class="modal-content" style="width: 100%;  height: 100%;">
+                                    <div class="modal-header" style="height: 50px;background-color: #1A237E   !important; font-size: 30px" >
+           <h4 class="modal-title" style="background-color: #1A237E   !important;clear: text-color :black !important; "><font color="white">DASHBOARD</font> </h4>
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+                <div class="col-lg-12">
+
+                    <div class="ibox product-detail">
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-md-5">
+
+<img src="C:\Users\Elcot\Desktop\zuck.jpg" style="width: 300px;height: 300px;border-radius: 200px;">
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th contenteditable="true" id="dashboardname">Chetan Dwarkani</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>E-Mail</td>
+        <td contenteditable="true" id="dashboardemail">mchetandwarkani@gmail.com</td>
+       
+      </tr>
+       <tr>
+        <td>Phone</td>
+        <td contenteditable="true" id="dashboardphone"> +91-9941197114</td>
+       
+      </tr>
+
+      </tbody></table>
+                                    
+
+                                </div>
+                               <div class="col-md-7" >
+
+                       
+
+                                    
+                                    <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+                                       
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Company Name</th>
+        <th contenteditable="true" id="dashboardcompanyname">Apaar International Resources ltd.</th>
+       
+      </tr>
+       <tr>
+        <td  >Type Of Company</td>
+        <td contenteditable="true" id="dashboardtoc">Public</td>
+       
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr>
+        <td>Registration Number</td>
+        <td id="dashboarduid">ID-12345667 </td>
+       
+      </tr>
+     
+    </tbody>
+  </table><hr>
+                                        
+                                    </dl>
+                                    <font size="4px" >   Company Address:</h2>
+                                     <dl class="dl-horizontal m-t-md small" style="border: 2px;border-color: black !important;" >
+        
+        <hr>                               
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Address Line 1</th>
+        <th contenteditable="true">58,Nammalwar Street,</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td  >Address Line 2</td>
+        <td contenteditable="true">Sowcarpet,</td>
+       
+      </tr>
+      <tr>
+        <td>City</td>
+        <td contenteditable="true">Chennai </td>
+       
+      </tr>
+      
+      <tr>
+        <td>Region /Province /State</td>
+        <td contenteditable="true">TamilNadu </td>
+       
+      </tr>
+       <tr>
+        <td>Postal Code /Zip Code</td>
+        <td contenteditable="true">600079 </td>
+       
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td contenteditable="true">India </td>
+       
+      </tr>
+    </tbody>
+  </table>
+                                        
+                                    </dl>
+                                    <div class="text-right">
+                                        <div class="btn-group">
+                                          
+                                            <button class="btn btn-primary btn-sm" title="Edit the contents and click on Update to change your profile" style="padding-right: 20px;"><i class="fa fa-envelope"></i>   How to Update ? </button>
+                                        
+                                            <button class="btn btn-primary btn-sm" style="background-color: #1A237E ;"><i class="fa fa-envelope"></i>   Update Changes  </button>
+                                   
+                               
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+            </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- raw cashew - list your req modal -->
+
+
+
+<div id="rawcashlistreq" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;"  >
+                                <div class="modal-dialog" style="width: 75%; height: 530px; background-color: #E8EAF6;"  >
+                                    <div class="modal-content" style="width: 100%;  height: 100%;">
+                                    <div class="modal-header" style="height: 50px;background-color: #1A237E   !important; font-size: 30px;padding: 5px;" >
+<span onclick="document.getElementById('rawcashlistreq').style.display='none'" 
+        class="pull-right" style="margin-right: 10px;width: 50px; margin-top: 0px; padding: 0px; color: white;">X</span>
+           <h4 class="modal-title" style="background-color: #1A237E   !important;clear: text-color :black !important; margin: 0px;padding: 0px;margin-top :5px;"><font color="white">Raw Cashew - List Your Requirements</font> </h4>
+
+
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+<div class="panel-body">
+                                       <div class="col-sm-6 b-r">
+ <form role="listreqform" style="background-color: #E8EAF6 ; " name="subbb" >
+                                                   <div style="padding: 10px;">
+                                                    <div class="form-group"><label>Name</label> <input type="text" id="rawcashewlistreqname" placeholder="Enter Name" class="form-control"></div>
+                                                        <div class="form-group"><label>Email</label> <input type="email" id="rawcashewlistreqemail" placeholder="Enter email" class="form-control"></div>
+                                                        <div class="form-group"><label>Phone Number</label> <input type="number" id="rawcashewlistreqphone" placeholder="Enter phone no" class="form-control"></div>
+                                                     </div>
+                                      <div class="form-group" action="http://localhost/simpletest.php" method="POST" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+                                      <div style="padding: 10px;">
+                                                        <div class="form-group"><label>Quantity Required</label> <input id="rawcashewlistreqqty" type="email" placeholder="Enter in MT" class="form-control"></div>
+                                                        <div class="form-group"><label>Target Price</label> <input type="number" id="rawcashewlistreqtargetprice" placeholder="Enter in $ /MT" class="form-control"></div>
+                                                  
+                                                         
+                                                        </div>
+                                                          <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+
+                                                           <div style="padding: 10px;">
+                                                        <div class="form-group"><label>Out Turn Guarantee</label> <input type="text" placeholder="Enter in LBS" class="form-control" id="rawcashewlistreqoutturn"></div>
+                                                        <div class="form-group"><label>Nut Count</label> <input type="number" id="rawcashewlistreqnutcount" placeholder="Enter in nut count" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Max Defective</label> <input type="number" id="rawcashewlistreqdef" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Max Moisture</label> <input type="number" id="rawcashewlistreqmaxmois" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Other Particles</label> <input type="number"  id="rawcashewlistreqotherparticles" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                  
+                                                         
+                                                        </div>
+
+                                                         <hr>
+                                                        
+                                                    <button class="btn btn-white pull-right" style="width: 100%" onclick="rawcashewmodalhide()" type="submit">Cancel</button>
+                                                </div>
+                                                <div class="col-sm-6 b-r" id="" >
+                                         
+    <div style="padding: 10px;background-color: #E8EAF6 ; " >
+                                                        <div class="form-group"><label>Year of Crop</label> <input type="text" id="rawcashewlistreqyearofcrop" placeholder="Enter Year of Crop" class="form-control"></div>
+                                                        <div class="form-group"><label>Country of Origin</label> <input type="text" id="rawcashewlistreqcountryofori" placeholder="Enter Country of Origin" class="form-control"></div>
+    </div>
+ 
+ <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+     <div style="padding: 10px;background-color: #E8EAF6 ; " >
+    <div class="form-group" ><label>Packing</label>
+ <select class="form-control m-b" id="rawcashewlistreqpacking" name="">
+  <option>Sea worty jute bag</option>
+                                        <option>Sisal bags 80 kg</option>
+                                     
+                                    </select>
+                                                        <div class="form-group"><label>Loading</label> 
+                                    <select class="form-control m-b" name="" id="rawcashewlistreqloading">
+                                      
+                                        <option>20 ft Container</option>
+                                        <option>40 ft Container </option>
+                                        <option>Break Bulk</option>
+                                     
+                                    </select>
+                                                        </div>
+                                                        
+                                                        <div class="form-group"><label>Inspection</label><select class="form-control m-b" id="rawcashewlistreqinspection">
+                                      
+                                        <option>SGS</option>
+                                    
+                                     
+                                    </select>
+                                    </div>
+
+                                                        <div class="form-group"><label>Preffered Landing Port</label> <input id="rawcashewlistreqpreflandport" type="text" placeholder="Enter here.." class="form-control"></div>
+                                                        <div class="form-group"><label>Shipment Month</label> <input type="text" id="rawcashewlistreqshipmentmonth" placeholder="Enter here.." class="form-control"></div>
+                                                         
+                                       </div>
+                                                         
+                                                </div>
+                                                        <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+                                                        <div style="padding: 10px; background-color: #E8EAF6 ; " >
+                                                        <div class="form-group"><label>International Commercial Terms</label> <br><input type="checkbox" id="rawcashewlistreqfob"><font style="font-size: 15px;"><b> FOB</b>
+
+    </font></input>
+    <br><input type="checkbox" id="rawcashewlistreqcif" ><font style="font-size: 15px;"><b>  CIF</b>
+
+     </font></input>
+
+                                                        </div>
+                                                        </div>
+<br>
+          <div style="padding: 8px;background-color: #E8EAF6 ; " >   
+          <div class="form-group"><label>Payment Terms</label> <input type="text" id="rawcashewlistreqpayementterms" placeholder="30 percent advance " class="form-control"></div>
+        </div>
+          <br>
+
+ <div style="padding: 8px; " >   
+            <button class="btn btn-primary pull-right" onclick="rawcashewlistre()" style="margin-left: 30px; margin-right: 10px; width: 100%" type="submit">Submit</button></div>
+        </div>
+
+
+    
+                                                        </div>
+      
+
+       
+                                        
+                                        
+                                    
+</form>
+                                                </div>
+                                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!--END OF RAW CASHEW LIST YOUR REQ MODAL-->
+
+
+
+<!-- processed cashew list your req modal -->
+
+
+
+<div id="proccashlistreq" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;"  >
+                                <div class="modal-dialog" style="width: 75%; height: 530px; background-color: #E8EAF6;"  >
+                                    <div class="modal-content" style="width: 100%;  height: 100%;">
+                                    <div class="modal-header" style="height: 50px;background-color: #1A237E   !important; font-size: 30px" >
+           <h4 class="modal-title" style="background-color: #1A237E   !important;clear: text-color :black !important; "><font color="white">Processed Cashew - List Your Requirements</font> </h4>
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+<div class="panel-body">
+                                       <div class="col-sm-6 b-r">
+ <form role="listreqform" style="background-color: #E8EAF6 ; " name="subbb" >
+                                                   <div style="padding: 10px;">
+                                                    <div class="form-group"><label>Name</label> <input type="text" id="proccashewlistreqname" placeholder="Enter Name" class="form-control"></div>
+                                                        <div class="form-group"><label>Email</label> <input type="email" id="proccashewlistreqemail" placeholder="Enter email" class="form-control"></div>
+                                                        <div class="form-group"><label>Phone Number</label> <input type="number" id="proccashewlistreqphone" placeholder="Enter phone no" class="form-control"></div>
+                                                     </div>
+                                      <div class="form-group" action="http://localhost/simpletest.php" method="POST" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+                                      <div style="padding: 10px;">
+                                                        <div class="form-group"><label>Quantity Required</label> <input id="proccashewlistreqqty" type="text" placeholder="Enter in MT" class="form-control"></div>
+                                                        <div class="form-group"><label>Target Price</label> <input type="number" id="proccashewlistreqtargetprice" placeholder="Enter in $ /MT" class="form-control"></div>
+                                                  
+                                                         
+                                                        </div>
+                                                          <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+
+                                                           <div style="padding: 10px;">
+                                                         <div class="form-group"><label>Type</label> 
+                                    <select class="form-control m-b" name="" id="proccashewlistreqtype">
+                                      
+                                        <option>Whole</option>
+                                        <option>Pieces </option>
+                                                                         
+                                    </select>
+                                                        </div>
+                                                        <div class="form-group"><label>Size</label> <input type="number" id="proccashewlistsize" placeholder="WW180/WW210/Buts.." class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Max Defective</label> <input type="number" id="proccashewlistreqdef" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Max Moisture</label> <input type="number" id="proccashewlistreqmaxmois" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                          <div class="form-group"><label>Quality and Gr.</label> 
+                                    <select class="form-control m-b" name="" id="proccashewlistreqloading">
+                                      
+                                        <option>First Quality Fancy</option>
+                                        <option>Second Quality Fancy </option>
+                                           <option>Third Quality Special Fancy</option>
+                                        <option>Fourth Quality</option>
+                                          <option>Lightly Blemished Wholes (LBW)</option>
+                                        <option>Lightly Blemish Pieces(LP)</option>
+                                          <option>Blemished Wholes(BW)</option>
+                                                                         
+                                    </select>
+                                                        </div>
+                                                  
+                                                         
+                                                        </div>
+
+                                                         <hr>
+                                                        
+                                                    <button class="btn btn-white pull-right" style="width: 100%" onclick="$(proccashlistreq).hide();" type="submit">Cancel</button>
+                                                </div>
+                                                <div class="col-sm-6 b-r" id="" >
+                                         
+    <div style="padding: 10px;background-color: #E8EAF6 ; " >
+                                                        <div class="form-group"><label>Raw Origin (Any Preference)</label> <input type="text" id="proccashewraworigin" placeholder="Enter Year of Crop" class="form-control"></div>
+                                                        <div class="form-group"><label>Preffered Processing Location</label> <input type="text" id="proccashewlistreqpreffered" placeholder="Enter Country of Origin" class="form-control"></div>
+    </div>
+ 
+ <br>
+     <div style="padding: 10px;background-color: #E8EAF6 ; " >
+    <div class="form-group" ><label>Packing</label>
+ <select class="form-control m-b" id="proccashewlistreqpacking" name="">
+  <option>2 Tins of 10ks in each carton</option>
+                                        <option>2 tins of 25LBS each in carton</option>
+                                     
+                                    </select>
+                                                   
+                                                        <div class="form-group"><label>NSLG NLG max</label> 
+                                    <input id="proccashewlistnsg" type="text" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                        
+                                                        <div class="form-group"><label>Inspection</label><select class="form-control m-b" id="proccashewlistreqinspection">
+                                      
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    
+                                     
+                                    </select>
+                                    </div>
+
+                                                        <div class="form-group"><label>Delivery Location</label> <input id="proccashewlistreqpreflandport" type="text" placeholder="Enter here.." class="form-control"></div>
+                                                        <div class="form-group"><label>Shipment Month</label> <input type="text" id="proccashewlistreqshipmentmonth" placeholder="Enter here.." class="form-control"></div>
+                                                         
+                                       </div>
+                                                         
+                                                </div>
+                                                        <br>
+                                                        <div style="padding: 10px; background-color: #E8EAF6 ; " >
+                                                        <div class="form-group"><label>International Commercial Terms</label> <br><input type="checkbox" id="proccashewlistreqfob"><font style="font-size: 15px;"><b> FOB</b>
+
+    </font></input>
+    <br><input type="checkbox" id="proccashewlistreqcif" ><font style="font-size: 15px;"><b>  CIF</b>
+
+     </font></input>
+
+                                                        </div>
+                                                        </div>
+<br>
+          <div style="padding: 8px;background-color: #E8EAF6 ; " >   
+          <div class="form-group"><label>Payment Terms</label> <input type="text" id="proccashewlistreqpayementterms" placeholder="30 percent advance " class="form-control"></div>
+        </div>
+          
+ <div style="padding: 8px; " >   
+            <button class="btn btn-primary pull-right" onclick="proccashewlistre()" style="margin-left: 30px; margin-right: 10px; margin-top: 20PX; width: 100%" type="submit">Submit</button></div>
+        </div>
+
+
+    
+                                                        </div>
+      
+
+       
+                                        
+                                        
+                                    
+</form>
+                                                </div>
+                                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- end of processed cashew list your req modal -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- RAE CASHEW POST YOUR OFFERS MODAL-->
+
+
+<div id="rawcashpostoff" class="modal fade in "  aria-hidden="true" style="padding-right: 17px;"  >
+                                <div class="modal-dialog" style="width: 75%; height: 530px; background-color: #E8EAF6;"  >
+                                    <div class="modal-content" style="width: 100%;  height: 100%;">
+                                    <div class="modal-header" style="height: 50px;background-color: #1A237E   !important; font-size: 30px" >
+           <h4 class="modal-title" style="background-color: #1A237E   !important;clear: text-color :black !important; "><font color="white">Raw Cashew - Post Your Offers</font> </h4>
+
+      </div>
+                                        <div class="modal-body" style="width: 100%; height: 450px;overflow-y: auto; padding-bottom: 0px;">
+                                            <div class="row" style="width: 100%;">
+
+<div class="row">
+<div class="panel-body">
+         <div class="panel-body">
+                                       <div class="col-sm-6 b-r">
+ 
+
+
+
+
+
+
+
+ <form role="listreqform" style="background-color: #E8EAF6 ; " name="subbb" >
+                                                   <div style="padding: 10px;">
+                                                    <div class="form-group"><label>Name</label> <input type="text" id="rawcashewpostreqname" placeholder="Enter Name" class="form-control"></div>
+                                                        <div class="form-group"><label>Email</label> <input type="email" id="rawcashewpostreqemail" placeholder="Enter email" class="form-control"></div>
+                                                        <div class="form-group"><label>Phone Number</label> <input type="number" id="rawcashewpostreqphone" placeholder="Enter phone no" class="form-control"></div>
+                                                     </div>
+                                      <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+                                      <div style="padding: 10px;">
+                                                        <div class="form-group"><label>Quantity Available</label> <input id="rawcashewpostreqqty" type="email" placeholder="Enter in MT" class="form-control"></div>
+                                                        <div class="form-group"><label>Offer Price</label> <input type="number" id="rawcashewpostreqtargetprice" placeholder="Enter in $ /MT" class="form-control"></div>
+                                                  
+                                                         
+                                                        </div>
+                                                          <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+
+                                                           <div style="padding: 10px;">
+                                                        <div class="form-group"><label>Out Turn Guarantee</label> <input type="text" placeholder="Enter in LBS" class="form-control" id="rawcashewpostreqoutturn"></div>
+                                                        <div class="form-group"><label>Nut Count</label> <input type="number" id="rawcashewpostreqnutcount" placeholder="Enter in nut count" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Max Defective</label> <input type="number" id="rawcashewpostreqdef" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Max Moisture</label> <input type="number" id="rawcashewpostreqmaxmois" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                         <div class="form-group"><label>Other Particles</label> <input type="number"  id="rawcashewpostreqotherparticles" placeholder="Enter in %" class="form-control">
+                                                        </div>
+                                                  
+                                                         
+                                                        </div>
+
+                                                         
+                                                        
+                                                    
+                                                </div>
+                                                <div class="col-sm-6 b-r" id="" >
+                                         
+    <div style="padding: 10px;background-color: #E8EAF6 ; " >
+                                                        <div class="form-group"><label>Year of Crop</label> <input type="text" id="rawcashewpostreqyearofcrop" placeholder="Enter Year of Crop" class="form-control"></div>
+                                                        <div class="form-group"><label>Country of Origin</label> <input type="text" id="rawcashewpostreqcountryofori" placeholder="Enter Country of Origin" class="form-control"></div>
+    </div>
+ 
+ <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+     <div style="padding: 10px;background-color: #E8EAF6 ; " >
+    <div class="form-group" ><label>Packing</label>
+ <select class="form-control m-b" id="rawcashewpostreqpacking" name="">
+  <option>Sea worty jute bag</option>
+                                        <option>Sisal bags 80 kg</option>
+                                     
+                                    </select>
+                                                        <div class="form-group"><label>Loading</label> 
+                                    <select class="form-control m-b" name="" id="rawcashewpostreqloading">
+                                      
+                                        <option>20 ft Container</option>
+                                        <option>40 ft Container </option>
+                                        <option>Break Bulk</option>
+                                     
+                                    </select>
+                                                        </div>
+                                                        
+                                                        <div class="form-group"><label>Inspection</label><select class="form-control m-b" id="rawcashewpostreqinspection">
+                                      
+                                        <option>SGS</option>
+                                    
+                                     
+                                    </select>
+                                    </div>
+
+                                                        <div class="form-group"><label>Preffered Landing Port</label> <input id="rawcashewpostreqpreflandport" type="text" placeholder="Enter here.." class="form-control"></div>
+                                                        <div class="form-group"><label>Shipment Month</label> <input type="text" id="rawcashewpostreqshipmentmonth" placeholder="Enter here.." class="form-control"></div>
+                                                         
+                                       </div>
+                                                         
+                                                        </div>
+                                                        <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+                                                        <div style="padding: 10px; background-color: #E8EAF6 ; " >
+                                                        <div class="form-group"><label>International Commercial Terms</label> <br><input type="checkbox" id="rawcashewpostreqfob"><font style="font-size: 15px;"><b> FOB</b>
+
+    </font></input>
+    <br><input type="checkbox" id="rawcashewpostreqcif" ><font style="font-size: 15px;"><b>  CIF</b>
+
+     </font></input>
+
+                                                        </div>
+                                                        </div>
+
+          <div style="padding: 8px;background-color: #E8EAF6 ; " >   
+          <div class="form-group"><label>Payment Terms</label> <input type="text" id="rawcashewpostreqpayementterms" placeholder="30 percent advance " class="form-control"></div>
+        </div>
+                                                        </div>
+        <div class="form-group" style="background-color: white !important;" ><label style="height: 10px; "></label> </div>
+
+         <div style="width: 100% ;float: right;">
+        <button class="btn btn-primary pull-right" onclick="rawcashewpostre()" style="margin-left: 20px; margin-right: 10px; width: 48%" type="submit">Submit</button>
+                                        <button class="btn btn-white pull-right" style="width: 48%" onclick="rawcashewmodalhide()" type="submit">Cancel</button>
+                                        
+                                    </div>
+</form>
+                                                </div>
+                                           
+
+
+                          
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- end of raw cashew post your offers modal-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="rawcashewmodal" class="modal fade in" aria-hidden="true" style="padding: 5px;">
+                         
+      <div class="modal-dialog" style="width: 80%">
+                                    <div class="modal-content" style="width: 100%">
+                                    <div class="modal-header" style="height: 50px;background-color:  #1A237E !important; font-size: 30px" >
+           <h4 class="modal-title" style="background-color:  #1A237E !important;clear: text-color :black !important; "><font color="white">RAW-CASHEW NUTS</font> </h4>
+      </div>
+                                        <div class="modal-body" style="width: 100% ;height: 480px ;overflow-y: auto;">
+                                            <div class="row" style="width: 100%">
+                                             
+                                               
+<div class="col-lg-12" style="width: 100%">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active" style="width: 50%"><a data-toggle="tab" href="#tab-1" aria-expanded="false"> LIST YOUR REQUIREMENTS</a></li>
+                            <li class="" style="width: 50%"><a data-toggle="tab" href="#tab-2" aria-expanded="true">POST YOUR OFFERS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                           
+
+
+
+
+ <div id="tab-1" class="tab-pane active">
+ <div class="col-lg-12" style="background-color : #E8EAF6 !important; padding: 10px;" >
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+
+<div class="row">
+
+<div id="div-for-raw-buyer">
+
+
+</div>
+</div>
+</div>
+</div>
+ </div>
+                        
+
+
+
+
+
+
+<!-- end of tab 1-->
+
+                            <div id="tab-2" class="tab-pane ">
+                           
+
+yet to be updated
+
+                                </div>
+<!-- end of tab 2 -->
+
+
+
+
+
+ </div>
+
+ </div>
+ </div> 
+                                  
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+ 
+<!-- Footer  section  start-->
+
+<footer class="text-center" style="background-color:  #2874f0 !important;height: 280px; text-decoration: none;">
+  
+
+
+
+  <div class="col-sm-12" style="background-color:  #2874f0 !important">
+      <div  style="height: 180px;background-color:  #2874f0 !important " class="col-sm-3 col-sm-offset-1">
+      <div class="small m-t-xs">
+                                   <font color="white" size="4px;"  style="margin-left: 5px;float: left;">Quick links</font><br><br>
+                                   <table class="table table-striped pull-left" style="width: 85%;" >
+    <thead style="text-decoration-color: black !important">
+      <tr>
+        <td ><a href="rawcashewlistre.html"> Raw - Cashew Requirements</a></td>
+       
+      </tr>
+    
+      <tr>
+        <td><a href="rawcashewlistavailability.html"> Raw - Cashew Availability</a></td>
+        
+       
+      </tr>
+      <tr>
+        <td><a href="proccashewlistre.html">  Processed - Cashew Requirements</a></td>
+      
+       
+      </tr>
+      <tr>
+        <td>Processed - Cashew Availability</td>
+        
+        
+      </tr>
+      
+    </thead>
+  </table></div>
+      
+      </div>
+  
+      <div  style="height: 180px;background-color:  #2874f0 !important " class="col-sm-3 col-sm-offset-1">
+      <div class="small m-t-xs">
+                                   <font color="white" size="4px;"  style="margin-left: 5px;float: left;">Services</font><br><br>
+                                   <table class="table table-striped pull-left" style="width: 70%;" >
+    <thead style="text-decoration-color: black !important">
+     <tr>
+        <td >Procurement Management</td>
+       
+      </tr>
+    
+      <tr>
+        <td>Collateral Management</td>
+        
+       
+      </tr>
+      <tr>
+        <td >Risk Management</td>
+       
+      </tr>
+    
+     
+      
+      
+    </thead>
+  </table>
+                            
+    </div>
+      </div>
+      <div  style="height: 180px;background-color:  #2874f0 !important " class="col-sm-3 col-sm-offset-1">
+      <div class="small m-t-xs">
+                                   <font color="white" size="4px;"  style="margin-left: 5px;float: left;">About Us</font><br><br>
+                                   <table class="table table-striped pull-left" style="width: 43%;" >
+    <thead style="text-decoration-color: black !important">
+     <tr>
+        <td > <a onclick="$('#ourvision').show();"> Our Vision</a></td>
+       
+      </tr>
+    
+      <tr>
+        <td> <a onclick="$('#ourmission').show();"> Our Mission</a></td>
+        
+       
+      </tr>
+      <tr>
+        <td >Cashew Buyer</td>
+       
+      </tr>
+    
+      <tr>
+        <td>Cashew seller </td>
+        
+       
+      </tr>
+      
+      
+    </thead>
+  </table>
+                            
+    </div>
+      </div>
+
+
+
+  </div>
+  
+<div class="col-sm-12" style="margin-top: 30px;">
+    <font color="white" size="2px;"  style="margin-left: 5px;float: center;">@ copyright , Apaar</font>
+
+</div>
+
+</footer>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+
+
+<!-- footer section end -->
+<script type="text/javascript">
+
+
+     $("#rawbuyer").hide();
+$("#rawseller").hide();
+$("#prbuyer").hide();
+$("#prseller").hide();
+$("#myitems").hide();
+$("#loading-image").hide();
+if(t=1)
+{
+    $("#rawbuyer").show();
+$("#rawseller").show();
+$("#prbuyer").show();
+$("#prseller").show();
+$("#myitems").hide();
+
+}
+</script>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// start of template raw cashew -requirements body //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+
+
+</body>
+</html>
