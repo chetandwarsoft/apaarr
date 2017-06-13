@@ -1,0 +1,58 @@
+<?php header('Access-Control-Allow-Origin: *');
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "chetan";
+$conn = new mysqli($servername, $username, $password, $dbname);
+$my_var=$_GET['q'];
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+   $sql = "SELECT COUNT(*) FROM `apaarr_buyer` WHERE `email` ="mchetandwarkani@gmail.com "";
+$result = $conn->query($sql);
+echo   json_encode($result);
+
+$data = array(); // create a variable to hold the information
+while($row = $result->fetch_assoc()) {
+  $data[] = $row;  
+}
+echo   json_encode($data);
+
+
+
+
+
+<?php header('Access-Control-Allow-Origin: *');
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "chetan";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if(isset($_POST["submit"])) {
+$imgedata =addslashes( file_get_contents($_FILES["image"]['tmp_name']));
+$imgename = addslashes($_FILES["image"]['name']);
+$imgsize = getimagesize($_FILES["image"]['tmp_name']);
+if($imgsize == FALSE )
+{
+	echo "not an image ";
+}
+"  
+
+
+if($conn->query($sql) == TRUE) 
+{
+    echo "New record inserted successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+
+
+$conn->close();
+?>
